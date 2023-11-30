@@ -15,9 +15,9 @@ import java.io.FileWriter;
 public class WebScraper {
 
     public static void main(String[] args) {
-        List<String> urls = readUrlsFromFile("/Users/lukepotter/Desktop/final_music_proj/country_edited.txt");
+        List<String> urls = readUrlsFromFile("country_urls.txt");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/lukepotter/Desktop/final_music_proj/country_lyrics.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("country_lyrics.txt"))) {
             int counter = 0;
             for (String url : urls) {
                 if (counter >= 10) {
@@ -31,8 +31,6 @@ public class WebScraper {
 
                     if (lyricsRootDiv != null) {
                         String textContent = lyricsRootDiv.text();
-                        System.out.println(textContent);
-
                         writer.write(textContent);
                         writer.newLine();
                     } else {
