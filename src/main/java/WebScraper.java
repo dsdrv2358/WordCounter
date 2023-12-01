@@ -64,18 +64,20 @@ public class WebScraper {
 
     public static String cleanLyrics(String lyrics) {
         System.out.println(lyrics);
+
         // removes all punc from lyrics string
-        String regex = "[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~]0123456789";
+        // String regex = "[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~0-9]";
+        String regex = "[!\"#$%&'()*+,./:;<=>?@^_`{|}~0123456789]";
         lyrics = lyrics.replaceAll(regex, "");
+
         //splits the string into a list of words
         String[] splitStr = lyrics.split("\\s+");
         String return_string = "";
+
+        // steps through 
         for (int i = 0; i > splitStr.length ; i++){
             // create var of word to compare
             String word = splitStr[i];
-
-            // int char_ascii = word.charAt(0);
-
             // checks if word is bracketed, "Contributers, or "Embed" and other common words and does nothing if it is
             if (word == "Chorus" || word == "Verse" || word == "Contributors" || word == "Embed"
             || word == "a" || word == "the" || word == "and" || word == "know" || word == "like"
@@ -86,13 +88,9 @@ public class WebScraper {
             || word == "me" || word == "to" || word == "we" || word == "do" || word == "it" || word == "is"
             || word == "are" || word == "when" || word == "your" || word == "two" || word == "u" || word == "be"){
             }
-
-            // checks to see of word is numb and does nothing if is
-            // if ((int) 0 <= char_ascii && char_ascii <= (int) 9){
-            // }
-
+            // if word not caught above add string to lyrics
             else{
-                return_string = return_string + word;
+                return_string += word + " ";
             }
 
 
