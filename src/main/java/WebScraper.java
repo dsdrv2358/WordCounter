@@ -1,5 +1,3 @@
-package a.k.l;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -7,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -31,6 +30,7 @@ public class WebScraper {
 
                     if (lyricsRootDiv != null) {
                         String textContent = lyricsRootDiv.text();
+                        // where to input function to clean text
                         writer.write(textContent);
                         writer.newLine();
                     } else {
@@ -60,4 +60,45 @@ public class WebScraper {
         }
         return urls;
     }
+
+
+    public static String cleanLyrics(String lyrics) {
+        System.out.println(lyrics);
+        // removes all punc from lyrics string
+        String regex = "[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~]0123456789";
+        lyrics = lyrics.replaceAll(regex, "");
+        //splits the string into a list of words
+        String[] splitStr = lyrics.split("\\s+");
+        String return_string = "";
+        for (int i = 0; i > splitStr.length ; i++){
+            // create var of word to compare
+            String word = splitStr[i];
+
+            // int char_ascii = word.charAt(0);
+
+            // checks if word is bracketed, "Contributers, or "Embed" and other common words and does nothing if it is
+            if (word == "Chorus" || word == "Verse" || word == "Contributors" || word == "Embed"
+            || word == "a" || word == "the" || word == "and" || word == "know" || word == "like"
+            || word == "oh" || word == "love" || word == "go" || word == "yeah" || word == "time" || word == "see"
+            || word == "got" || word == "get" || word == "wanna" || word == "let" || word == "never" || word == "want"
+            || word == "feel" || word == "one" || word == "cause" || word == "make" || word == "say" || word == "baby"
+            || word == "if" || word == "on" || word == "in" || word == "that" || word == "then" || word == "i"
+            || word == "me" || word == "to" || word == "we" || word == "do" || word == "it" || word == "is"
+            || word == "are" || word == "when" || word == "your" || word == "two" || word == "u" || word == "be"){
+            }
+
+            // checks to see of word is numb and does nothing if is
+            // if ((int) 0 <= char_ascii && char_ascii <= (int) 9){
+            // }
+
+            else{
+                return_string = return_string + word;
+            }
+
+
+        }
+        return return_string;
+    }
+
+
 }
