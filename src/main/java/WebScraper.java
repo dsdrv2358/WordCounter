@@ -14,9 +14,9 @@ import java.io.FileWriter;
 public class WebScraper {
 
     public static void main(String[] args) {
-        List<String> urls = readUrlsFromFile("country_urls.txt");
+        List<String> urls = readUrlsFromFile("urls/country_urls.txt");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("country_lyrics.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("lyrics/country_lyrics.txt"))) {
             int counter = 0;
             for (String url : urls) {
                 if (counter >= 10) {
