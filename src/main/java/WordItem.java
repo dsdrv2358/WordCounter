@@ -1,19 +1,50 @@
-public class WordItem<T> implements Comparable<WordItem<T>>{
+import java.util.ArrayList;
 
-    private T item;
-    private WordItem<T> next;
+public class WordItem{
+
+    private String item;
+    private WordItem next;
     private int count;
 
-    public WordItem(T item){
+    public WordItem(String item){
         this.item = item;
         this.next = null;
         this.count = 1;
     }
 
-    @Override
-    public int compareTo(WordItem<T> arg0) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+
+    public ArrayList<String> getChain(){
+        ArrayList<String> wordList = new ArrayList<>();
+        wordList = this.getChain(wordList);
+        return wordList;
+
+    }
+    public ArrayList<String> getChain(ArrayList<String> wordList){
+        wordList.add(this.item);
+        if (this.next != null){
+            this.next.getChain(wordList);
+        }
+        return wordList;
+    }
+
+    public void increaseCount(){
+        this.count++;
+    }
+
+    public String getItem(){
+        return this.item;
+    }
+
+    public WordItem getNext(){
+        return this.next;
+    }
+
+    public void setNext(WordItem next){
+        this.next = next;
+    }
+
+    public int getCount(){
+        return this.count;
     }
 
 }
