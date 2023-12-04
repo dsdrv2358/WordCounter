@@ -1,6 +1,3 @@
-package a.k.l;
-
-
 public class WordItem<T> implements Comparable<WordItem<T>>{
 
     private T item;
