@@ -7,7 +7,7 @@ import java.io.IOException;
 public class PopulateDatabase {
 
     public static void main(String[] args) {
-        String inputFilePath = "lyrics/rap_lyrics.txt";
+        String inputFilePath = "lyrics/rock_lyrics.txt";
         String outputFilePath = "lyrics/test.txt";
 
         IntChainedHashSet<String> mySet = new IntChainedHashSet<String>(10000);
@@ -21,8 +21,6 @@ public class PopulateDatabase {
             while ((line = reader.readLine()) != null && count < 150000) {
                 // Split the line into words using whitespace
                 String[] words = line.split("\\s+");
-
-                // Iterate through each word
                 for (String word : words) {
                     count++;
                     mySet.add(word);
@@ -33,7 +31,7 @@ public class PopulateDatabase {
         } catch (IOException e) {
         }
         System.out.println(mySet.getNumItems());
-        System.out.println(mySet.getCount("fuck"));
+        System.out.println(mySet.getCount("beer"));
     }
 
 }
