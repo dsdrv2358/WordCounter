@@ -31,7 +31,7 @@ public class PopulateDatabase {
         } catch (IOException e) {
         }
         System.out.println(mySet.getNumItems());
-        System.out.println(mySet.getCount("beer"));
+        System.out.println(mySet.getCount("hat"));
     }
 
 }
