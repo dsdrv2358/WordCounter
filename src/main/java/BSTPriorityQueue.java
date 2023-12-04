@@ -1,4 +1,4 @@
-package edu.ithaca.dragon.datastructures.tree;
+
 import java.util.NoSuchElementException;
 
 public class BSTPriorityQueue<T> implements PriorityQueue <T> {
