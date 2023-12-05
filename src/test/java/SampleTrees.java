@@ -1,4 +1,4 @@
-import BST.BTNode;
+import bst.BTNode;
 
 public class SampleTrees {
     public static BTNode<String> getTree1(){

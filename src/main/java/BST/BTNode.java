@@ -1,4 +1,4 @@
-package BST;
+package bst;
 
 public class BTNode<T extends Comparable<T>> {
 

@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import BST.BTNode;
-import BST.BTNodeUtil;
+import bst.BTNode;
+import bst.BTNodeUtil;
 
 public class BTNodeUtilTest {
 

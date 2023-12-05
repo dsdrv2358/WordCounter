@@ -1,4 +1,4 @@
-package BST;
+package bst;
 
 public class BTNodeUtil{
 

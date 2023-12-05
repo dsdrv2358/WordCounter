@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import BST.BSTNodeUtil;
-import BST.BTNode;
-import BST.BTNodeUtil;
+import bst.BSTNodeUtil;
+import bst.BTNode;
+import bst.BTNodeUtil;
 
 public class BSTNodeUtilTest {
 
