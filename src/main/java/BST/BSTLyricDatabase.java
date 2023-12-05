@@ -1,5 +1,6 @@
-package BST;
+package bst;
 
+import interface;
 
 import java.util.NoSuchElementException;
 
@@ -15,7 +16,7 @@ public class BSTLyricDatabase<T> implements LyricDatabase <T> {
     /**
      * puts an item into the priorityQueue with the given priority
      */
-    public void add(String item){
+    public void add(T item){
         // if node is empty
         root = BSTNodeUtil.bstAdd(root, item);
     }
@@ -23,14 +24,14 @@ public class BSTLyricDatabase<T> implements LyricDatabase <T> {
     /*
      * returns true or false if item in data structure
      */
-    public boolean contains(String item){
+    public boolean contains(T item){
         return BSTNodeUtil.bstContains(root, item);
     }
 
     /*
      * returns the count of a specific word
      */
-    public int getCount(String item){
+    public int getCount(T item){
         return BSTNodeUtil.BSTGetCount(root, item);
     }
 
