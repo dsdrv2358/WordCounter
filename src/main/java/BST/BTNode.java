@@ -12,7 +12,7 @@ public class BTNode<T extends Comparable<T>> {
     public BTNode(String item){
         this.item = item;
         this.key = hash(item);
-        this.count = 0;
+        this.count = 1;
         this.left = null;
         this.right = null;
     }
@@ -61,6 +61,11 @@ public class BTNode<T extends Comparable<T>> {
     // returns number of instances of a priority
     public int getNodeCount(){
         return count;
+    }
+
+    // adds one to count because there is another occurance of the word
+    public void addCount(){
+        count += 1;
     }
     
 }

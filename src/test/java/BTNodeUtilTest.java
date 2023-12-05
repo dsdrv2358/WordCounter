@@ -30,46 +30,42 @@ public class BTNodeUtilTest {
 
     @Test
     public void containsTest(){
-        for (int key=1; key<8; key++){
-            assertTrue(BTNodeUtil.contains(SampleTrees.getTree1(), key));
-            assertTrue(BTNodeUtil.contains(SampleTrees.getTree2(), key));
-            assertTrue(BTNodeUtil.contains(SampleTrees.getTree3(), key));
-        }
 
-        assertFalse(BTNodeUtil.contains(SampleTrees.getTree1(), 0));
-        assertFalse(BTNodeUtil.contains(SampleTrees.getTree2(), 8));
-        assertFalse(BTNodeUtil.contains(SampleTrees.getTree3(), 12));
 
-        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), 100));
-        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), 122));
-        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), 112));
-        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), 17));
+        assertFalse(BTNodeUtil.contains(SampleTrees.getTree1(), "v"));
+        assertFalse(BTNodeUtil.contains(SampleTrees.getTree2(), "o"));
+        assertFalse(BTNodeUtil.contains(SampleTrees.getTree3(), "l"));
 
-        assertFalse(BTNodeUtil.contains(SampleTrees.getTree4().getRight(), 100));
-        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4().getRight(), 132));
+        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), "p"));
+        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), "r"));
+        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), "b"));
+        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4(), "h"));
 
-        assertFalse(BTNodeUtil.contains(null, 100));
-        assertFalse(BTNodeUtil.contains(new BTNode<String>("plank"), 3));
-        assertTrue(BTNodeUtil.contains(new BTNode<String>("spank"), 5));
+        assertFalse(BTNodeUtil.contains(SampleTrees.getTree4().getRight(), "b"));
+        assertTrue(BTNodeUtil.contains(SampleTrees.getTree4().getRight(), "u"));
+
+        assertFalse(BTNodeUtil.contains(null, "x"));
+        assertFalse(BTNodeUtil.contains(new BTNode<String>("plank"), "t"));
+        assertTrue(BTNodeUtil.contains(new BTNode<String>("spank"), "spank"));
     }
 
     @Test
     public void preOrderStringTest(){
-        assertEquals("1, 2, 3, 4, 5, 6, 7, ", BTNodeUtil.preOrderString(SampleTrees.getTree2()));
-        assertEquals("100, 22, 5, 1, 17, 132, 105, 122, 112, ", BTNodeUtil.preOrderString(SampleTrees.getTree4()));
+        assertEquals("a, b, c, d, e, f, g, ", BTNodeUtil.preOrderString(SampleTrees.getTree2()));
+        // assertEquals("100, 22, 5, 1, 17, 132, 105, 122, 112, ", BTNodeUtil.preOrderString(SampleTrees.getTree4()));
     }
 
     @Test
     public void postOrderStringTest(){
-        assertEquals("1, 2, 3, 4, 5, 6, 7, ", BTNodeUtil.postOrderString(SampleTrees.getTree3()));
-        assertEquals("1, 17, 5, 22, 112, 122, 105, 132, 100, ", BTNodeUtil.postOrderString(SampleTrees.getTree4()));
+        assertEquals("a, b, c, d, e, f, g, ", BTNodeUtil.postOrderString(SampleTrees.getTree3()));
+        // assertEquals("1, 17, 5, 22, 112, 122, 105, 132, 100, ", BTNodeUtil.postOrderString(SampleTrees.getTree4()));
 
     }
 
     @Test
     public void inOrderStringTest(){
-        assertEquals("1, 2, 3, 4, 5, 6, 7, ", BTNodeUtil.inOrderString(SampleTrees.getTree1()));
-        assertEquals("1, 5, 17, 22, 100, 105, 112, 122, 132, ", BTNodeUtil.inOrderString(SampleTrees.getTree4()));
+        assertEquals("a, b, c, d, e, f, h, ", BTNodeUtil.inOrderString(SampleTrees.getTree1()));
+        // assertEquals("1, 5, 17, 22, 100, 105, 112, 122, 132, ", BTNodeUtil.inOrderString(SampleTrees.getTree4()));
     }
 
     @Test

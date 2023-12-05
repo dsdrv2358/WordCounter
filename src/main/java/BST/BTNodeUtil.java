@@ -13,16 +13,17 @@ public class BTNodeUtil{
         }
     }
 
-    public static <T extends Comparable<T>> boolean contains(BTNode<T> root, T keyToFind){
+    public static <T extends Comparable<T>> boolean contains(BTNode<T> root, String item){
+        int keyToFind = BTNode.hash(item);
         if (root == null){
             return false;
         }
-        if (root.getItem().equals(keyToFind)){
+        if (root.getKey() == keyToFind){
             return true;
         }
         else{
-            boolean ans1 = contains(root.getLeft(), keyToFind);
-            boolean ans2 = contains(root.getRight(), keyToFind);
+            boolean ans1 = contains(root.getLeft(), item);
+            boolean ans2 = contains(root.getRight(), item);
             if(ans1 == true || ans2 == true){
                 return true;
             }
