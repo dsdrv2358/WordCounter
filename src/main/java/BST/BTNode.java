@@ -1,25 +1,42 @@
+package BST;
 
 public class BTNode<T extends Comparable<T>> {
 
     // private T item;
-    private String item = null;
-    private int count = 0;
+    private String item;
+    private int key;
+    private int count;
     private BTNode<T> left;
     private BTNode<T> right;
 
     public BTNode(String item){
         this.item = item;
+        this.key = hash(item);
+        this.count = 0;
         this.left = null;
         this.right = null;
+    }
+
+        //hash function
+    public static int hash(String item){
+        int hash = 0;
+        for (char c : item.toCharArray()) {
+            hash = 31 * hash + c;  // A common multiplier (31) is used for better distribution
+        }
+        return hash;
     }
 
     public String getItem(){
         return item;
     }
 
-    // public void setItem(T key) {
-	// 	this.item = key;
-	// }
+    public void setItem(String item) {
+		this.item = item;
+	}
+
+    public int getKey(){
+        return key;
+    }
 
     // gets roots left
 	public BTNode<T> getLeft() {

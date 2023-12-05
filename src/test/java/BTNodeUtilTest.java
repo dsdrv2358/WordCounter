@@ -4,7 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
+import BST.BTNode;
+import BST.BTNodeUtil;
 
 public class BTNodeUtilTest {
 
@@ -18,7 +25,7 @@ public class BTNodeUtilTest {
         assertEquals(4, BTNodeUtil.nodeCount(SampleTrees.getTree4().getRight()));
 
         assertEquals(0, BTNodeUtil.nodeCount(null));
-        assertEquals(1, BTNodeUtil.nodeCount(new BTNode<Integer>(5)));
+        assertEquals(1, BTNodeUtil.nodeCount(new BTNode<String>("plank")));
     }
 
     @Test
@@ -42,8 +49,8 @@ public class BTNodeUtilTest {
         assertTrue(BTNodeUtil.contains(SampleTrees.getTree4().getRight(), 132));
 
         assertFalse(BTNodeUtil.contains(null, 100));
-        assertFalse(BTNodeUtil.contains(new BTNode<Integer>(5), 3));
-        assertTrue(BTNodeUtil.contains(new BTNode<Integer>(5), 5));
+        assertFalse(BTNodeUtil.contains(new BTNode<String>("plank"), 3));
+        assertTrue(BTNodeUtil.contains(new BTNode<String>("spank"), 5));
     }
 
     @Test
@@ -75,7 +82,19 @@ public class BTNodeUtilTest {
         assertEquals(3, BTNodeUtil.height(SampleTrees.getTree4().getRight()));
 
         assertEquals(-1, BTNodeUtil.height(null));
-        assertEquals(0, BTNodeUtil.height(new BTNode<Integer>(5)));
+        assertEquals(0, BTNodeUtil.height(new BTNode<String>("plank")));
     }
+
+    // @Test
+    // public void printingHashes(){
+    //     List<String> words = new ArrayList<>();
+    //     Collections.addAll(words, "apple", "banana", "orange", "grape", "kiwi",
+    //             "melon", "pear", "cherry", "strawberry", "blueberry",
+    //             "watermelon", "pineapple", "peach", "apricot", "plum",
+    //             "lemon", "lime", "raspberry", "blackberry", "cranberry");
+    //     for (int i = 0; i < words.size(); i++){
+    //         System.out.println(words.get(i) + ":" + String.valueOf(BTNode.hash(words.get(i))));
+    //     }
+    // }
     
 }

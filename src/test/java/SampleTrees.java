@@ -1,60 +1,60 @@
-
+import BST.BTNode;
 
 public class SampleTrees {
-    public static BTNode<Integer> getTree1(){
-        BTNode<Integer> root = new BTNode<Integer>(4);
+    public static BTNode<String> getTree1(){
+        BTNode<String> root = new BTNode<String>("d");
        
-        root.setLeft(new BTNode<Integer>(2));
-        root.getLeft().setLeft(new BTNode<Integer>(1));
-        root.getLeft().setRight(new BTNode<Integer>(3));
+        root.setLeft(new BTNode<String>("b"));
+        root.getLeft().setLeft(new BTNode<String>("a"));
+        root.getLeft().setRight(new BTNode<String>("c"));
 
-        root.setRight(new BTNode<Integer>(6));
-        root.getRight().setLeft(new BTNode<Integer>(5));
-        root.getRight().setRight(new BTNode<Integer>(7));
+        root.setRight(new BTNode<String>("f"));
+        root.getRight().setLeft(new BTNode<String>("e"));
+        root.getRight().setRight(new BTNode<String>("h"));
 
         return root;
         
     }
 
-    public static BTNode<Integer> getTree2(){
-        BTNode<Integer> root = new BTNode<Integer>(1);
+    public static BTNode<String> getTree2(){
+        BTNode<String> root = new BTNode<String>("a");
        
-        root.setLeft(new BTNode<Integer>(2));
-        root.getLeft().setLeft(new BTNode<Integer>(3));
-        root.getLeft().setRight(new BTNode<Integer>(4));
+        root.setLeft(new BTNode<String>("b"));
+        root.getLeft().setLeft(new BTNode<String>("c"));
+        root.getLeft().setRight(new BTNode<String>("d"));
 
-        root.setRight(new BTNode<Integer>(5));
-        root.getRight().setLeft(new BTNode<Integer>(6));
-        root.getRight().setRight(new BTNode<Integer>(7));
+        root.setRight(new BTNode<String>("e"));
+        root.getRight().setLeft(new BTNode<String>("f"));
+        root.getRight().setRight(new BTNode<String>("g"));
         return root;
         
     }
 
-    public static BTNode<Integer> getTree3(){
-        BTNode<Integer> root = new BTNode<Integer>(7);
+    public static BTNode<String> getTree3(){
+        BTNode<String> root = new BTNode<String>("g");
        
-        root.setLeft(new BTNode<Integer>(3));
-        root.getLeft().setLeft(new BTNode<Integer>(1));
-        root.getLeft().setRight(new BTNode<Integer>(2));
+        root.setLeft(new BTNode<String>("c"));
+        root.getLeft().setLeft(new BTNode<String>("a"));
+        root.getLeft().setRight(new BTNode<String>("b"));
 
-        root.setRight(new BTNode<Integer>(6));
-        root.getRight().setLeft(new BTNode<Integer>(4));
-        root.getRight().setRight(new BTNode<Integer>(5));
+        root.setRight(new BTNode<String>("f"));
+        root.getRight().setLeft(new BTNode<String>("d"));
+        root.getRight().setRight(new BTNode<String>("e"));
         return root;
     }
 
-    public static BTNode<Integer> getTree4(){
-        BTNode<Integer> root = new BTNode<Integer>(100);
+    public static BTNode<String> getTree4(){
+        BTNode<String> root = new BTNode<String>("n");
        
-        root.setLeft(new BTNode<Integer>(22));
-        root.getLeft().setLeft(new BTNode<Integer>(5));
-        root.getLeft().getLeft().setLeft(new BTNode<Integer>(1));
-        root.getLeft().getLeft().setRight(new BTNode<Integer>(17));
+        root.setLeft(new BTNode<String>("k"));
+        root.getLeft().setLeft(new BTNode<String>("e"));
+        root.getLeft().getLeft().setLeft(new BTNode<String>("b"));
+        root.getLeft().getLeft().setRight(new BTNode<String>("h"));
 
-        root.setRight(new BTNode<Integer>(132));
-        root.getRight().setLeft(new BTNode<Integer>(105));
-        root.getRight().getLeft().setRight(new BTNode<Integer>(122));
-        root.getRight().getLeft().getRight().setLeft(new BTNode<Integer>(112));
+        root.setRight(new BTNode<String>("x"));
+        root.getRight().setLeft(new BTNode<String>("p"));
+        root.getRight().getLeft().setRight(new BTNode<String>("u"));
+        root.getRight().getLeft().getRight().setLeft(new BTNode<String>("r"));
         return root;
     }
 }

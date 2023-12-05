@@ -8,6 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import BST.BSTNodeUtil;
+import BST.BTNode;
+import BST.BTNodeUtil;
+
 public class BSTNodeUtilTest {
     public BTNode<Integer> createExampleBstWithAddTail(){
         //need to create root node to start

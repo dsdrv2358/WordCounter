@@ -1,6 +1,4 @@
-
-
-// import org.w3c.dom.Node;
+package BST;
 
 public class BSTNodeUtil {
 
@@ -11,7 +9,7 @@ public class BSTNodeUtil {
      * @post BST from root will be mutatated to contain a new node with the given item
      * @throws IllegalArgumentException if root is null or the BST already contains item
      */
-    public static <T extends Comparable<T>> void bstAddTail(BTNode<T> root, T item){
+    public static <T extends Comparable<T>> void bstAddTail(BTNode<T> root, String item){
         //TODO
         if (root == null){
             throw new IllegalArgumentException("Node is null");
@@ -52,7 +50,7 @@ public class BSTNodeUtil {
      * @post original BST might be modified to contain a new node with the given item
      * @throws IllegalArgumentException if the bst already contains item
      */
-    public static <T extends Comparable<T>> BTNode<T> bstAdd(BTNode<T> root, T item){
+    public static <T extends Comparable<T>> BTNode<T> bstAdd(BTNode<T> root, String item){
         //TODO
         // int tht represents if recursion should go left and right
         if (root == null) {
@@ -92,7 +90,7 @@ public class BSTNodeUtil {
      * @pre root must be a node of a valid binary search tree, or null
      * @return true if the item is found in the bst, false otherwise 
      */
-    public static <T extends Comparable<T>> boolean bstContains(BTNode<T> root, T item){
+    public static <T extends Comparable<T>> boolean bstContains(BTNode<T> root, String item){
         //TODO
         if (root == null) {
             return false;
@@ -116,7 +114,7 @@ public class BSTNodeUtil {
      * @pre root must be a node of a valid binary search tree, or null 
      * @return  the minimum item from the BST, or null if there are no items
      */
-    public static <T extends Comparable<T>> T bstFindMin(BTNode<T> root){
+    public static <T extends Comparable<T>> String bstFindMin(BTNode<T> root){
         // throw new RuntimeException("Not implemented");
         if (root == null){
             return null;
@@ -155,26 +153,6 @@ public class BSTNodeUtil {
             root.setLeft(newLeftSubTree);
             return root;
         }
-
-
-        // if (root.getLeft().getLeft() == null){
-        //     if (root.getLeft().getNodeCount() > 1){
-        //         root.removeItem();
-        //         return root;
-        //     }
-        //     if (root.getLeft().getRight() != null){
-        //         BTNode<T> node = root.getLeft().getRight();
-        //         root.setLeft(node);
-        //         return root;
-        //     }
-        //     else{
-        //         root.setLeft(null);
-        //         return root;
-        //     }
-        // }
-        // else{
-        //     return bstRemoveMin(root.getLeft());
-        // }
     }
 
     /**
@@ -182,7 +160,7 @@ public class BSTNodeUtil {
     * @return  the root of a BST with the minimum removed, or null if empty
     * @post original BST might be modified to have the minimum removed
     */
-    public static <T extends Comparable<T>> BTNode<T> bstRemove(BTNode<T> root, T item){
+    public static <T extends Comparable<T>> BTNode<T> bstRemove(BTNode<T> root, String item){
         // if inittal root is null return null
         if (root == null){
             return null;
