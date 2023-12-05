@@ -87,6 +87,4 @@ public class WebScraper {
         }
         return return_string;
     }
-
-
 }

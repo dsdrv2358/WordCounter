@@ -2,7 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntChainedHashSet<T> {
+public class IntChainedHashSet<T> implements LyricDatabase<T> {
 
     private WordItem[] myArray;
     private int size = 0;
