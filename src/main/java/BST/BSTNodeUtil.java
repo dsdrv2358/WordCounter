@@ -11,17 +11,25 @@ public class BSTNodeUtil {
      */
     public static <T extends Comparable<T>> void bstAddTail(BTNode<T> root, String item){
         //TODO
+
+        // item to find key
+        int key = BTNode.hash(item);
+
+        // if node is null throws argument
         if (root == null){
             throw new IllegalArgumentException("Node is null");
         }
 
-        int num = item.compareTo(root.getItem());
+        // int num = item.compareTo(root.getItem());
 
-        if (num == 0){
+        // if item is in node throw an argument
+        if (key == root.getKey()){
             throw new IllegalArgumentException("BST already has item");
         }
+        //if item is not in node step in
         else{
-            if(num < 0){
+            // if item to find key is less than node key
+            if(key < root.getKey()){
                 if (root.getLeft() != null){
                     bstAddTail(root.getLeft(), item);
                 }
@@ -30,6 +38,7 @@ public class BSTNodeUtil {
                     root.setLeft(node);
                 }
             }
+            // if item to find key is greater than node key
             else{
                 if (root.getRight() != null){
                     bstAddTail(root.getRight(), item);
@@ -60,7 +69,7 @@ public class BSTNodeUtil {
 
         if (num == 0){
             // throw new IllegalArgumentException("BST already has item");
-            root.addItem(item);
+            root.addCount();
         }
         else{
             if(num < 0){
@@ -110,131 +119,4 @@ public class BSTNodeUtil {
     }
 
 
-        /**
-     * @pre root must be a node of a valid binary search tree, or null 
-     * @return  the minimum item from the BST, or null if there are no items
-     */
-    public static <T extends Comparable<T>> String bstFindMin(BTNode<T> root){
-        // throw new RuntimeException("Not implemented");
-        if (root == null){
-            return null;
-        }
-        if (root.getLeft() == null){
-            return root.getItem();
-        }
-        else {
-            return bstFindMin(root.getLeft());
-        }
-    }
-
-
-    /**
-    * @pre root must be a node of a valid binary search tree, or null 
-    * @return  the root of a BST with the minimum removed, or null if empty
-    * @post original BST might be modified to have the minimum removed
-    */
-    public static <T extends Comparable<T>> BTNode<T> bstRemoveMin(BTNode<T> root){
-        // throw new RuntimeException("Not implemented");
-        if (root == null){
-            return null;
-        }
-        if (root.getLeft() == null){
-            if (root.getNodeCount() > 1){
-                root.removeItem();
-                return root;
-            }
-            else{
-                return root.getRight();
-            }
-        }
-        else {
-
-            BTNode<T> newLeftSubTree = bstRemoveMin(root.getLeft());
-            root.setLeft(newLeftSubTree);
-            return root;
-        }
-    }
-
-    /**
-    * @pre root must be a node of a valid binary search tree, or null 
-    * @return  the root of a BST with the minimum removed, or null if empty
-    * @post original BST might be modified to have the minimum removed
-    */
-    public static <T extends Comparable<T>> BTNode<T> bstRemove(BTNode<T> root, String item){
-        // if inittal root is null return null
-        if (root == null){
-            return null;
-        }
-        int num = item.compareTo(root.getItem());
-        // if intal root is equivlent to the item to be removed
-        if (num == 0){
-            BTNode <T> newRoot = root.getLeft();
-            root = root.getRight();
-            while (root.getLeft() != null){
-                root.getLeft();
-            }
-            root.setLeft(newRoot);
-            return root;
-
-        }
-        // if item to remove is less than item in node
-        if (num < 0){
-            if (item.compareTo(root.getLeft().getItem()) == 0){
-                if (root.getLeft().getLeft() == null && root.getLeft().getRight() == null){
-                    root.setLeft(null);
-                    return root;
-                }
-                if (root.getLeft().getLeft() != null && root.getLeft().getRight() == null){
-                    root.setLeft(root.getLeft().getLeft());
-                    return root;
-                }
-                if (root.getLeft().getLeft() == null && root.getLeft().getRight() != null){
-                    root.setLeft(root.getLeft().getRight());
-                    return root;
-                }
-                else{
-                    BTNode <T> newRoot = root.getLeft().getLeft();
-                    root.setLeft(root.getLeft().getRight());
-                    while (BTNodeUtil.nodeCount(newRoot) > 0){
-                        BSTNodeUtil.bstAdd(root, BSTNodeUtil.bstFindMin(newRoot));
-                        BSTNodeUtil.bstRemoveMin(newRoot);
-                    }
-                    return root;
-                }
-            }
-            else{
-                return bstRemove(root.getLeft(), item);
-            }
-        // if item to remove is greater then node item
-        }
-        if (num > 0){
-            if (item.compareTo(root.getRight().getItem()) == 0){
-                if (root.getRight().getLeft() == null && root.getRight().getRight() == null){
-                    root.setRight(null);
-                    return root;
-                }
-                if (root.getRight().getLeft() != null && root.getRight().getRight() == null){
-                    root.setRight(root.getRight().getLeft());
-                    return root;
-                }
-                if (root.getRight().getLeft() == null && root.getRight().getRight() != null){
-                    root.setRight(root.getRight().getRight());
-                    return root;
-                }
-                else{
-                    BTNode <T> newRoot = root.getRight().getLeft();
-                    root.setLeft(root.getRight().getRight());
-                    while (BTNodeUtil.nodeCount(newRoot) > 0){
-                        BSTNodeUtil.bstAdd(root, BSTNodeUtil.bstFindMin(newRoot));
-                        BSTNodeUtil.bstRemoveMin(newRoot);
-                    }
-                    return root;
-                }
-            }
-            else{
-                return bstRemove(root.getRight(), item);
-            }
-        }
-        return root;
-    }
 }

@@ -81,16 +81,5 @@ public class BTNodeUtilTest {
         assertEquals(0, BTNodeUtil.height(new BTNode<String>("plank")));
     }
 
-    // @Test
-    // public void printingHashes(){
-    //     List<String> words = new ArrayList<>();
-    //     Collections.addAll(words, "apple", "banana", "orange", "grape", "kiwi",
-    //             "melon", "pear", "cherry", "strawberry", "blueberry",
-    //             "watermelon", "pineapple", "peach", "apricot", "plum",
-    //             "lemon", "lime", "raspberry", "blackberry", "cranberry");
-    //     for (int i = 0; i < words.size(); i++){
-    //         System.out.println(words.get(i) + ":" + String.valueOf(BTNode.hash(words.get(i))));
-    //     }
-    // }
     
 }
