@@ -118,5 +118,26 @@ public class BSTNodeUtil {
         }
     }
 
+    /*
+     * returns the count of a word if in data structure
+     */
+    public static <T extends Comparable<T>> int BSTGetCount(BTNode<T> root, String item){
+        if (root == null) {
+            throw new IllegalArgumentException("BST does not contain item");
+        }
+        int num = item.compareTo(root.getItem());
+        if (num == 0){
+            return root.getNodeCount();
+        }
+        else{
+            if(num < 0){
+                return BSTGetCount(root.getLeft(), item);
+            }
+            else{
+                return BSTGetCount(root.getRight(), item);
+            }
+        }
+    }
+
 
 }

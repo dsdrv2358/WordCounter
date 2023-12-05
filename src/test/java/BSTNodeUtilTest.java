@@ -93,15 +93,15 @@ public class BSTNodeUtilTest {
         BTNode<String> root = createExampleBstWithAdd();
         verifyBst(root);
         
-        BSTNodeUtil.bstAdd(root, "q");
-        BSTNodeUtil.bstAdd(root, "t");
-        BSTNodeUtil.bstAdd(root, "j");
-        BSTNodeUtil.bstAdd(root, "v");
+        BSTNodeUtil.bstAdd(root, "a");
+        BSTNodeUtil.bstAdd(root, "g");
+        BSTNodeUtil.bstAdd(root, "z");
+        BSTNodeUtil.bstAdd(root, "w");
 
-        assertEquals(2, root.getNodeCount());
-        assertEquals(2, root.getRight().getLeft().getNodeCount());
-        assertEquals(2, root.getLeft().getRight().getLeft().getNodeCount());
-        assertEquals(2, root.getRight().getLeft().getRight().getLeft().getRight().getNodeCount());
+        assertEquals("a", root.getLeft().getLeft().getLeft().getLeft().getItem());
+        assertEquals("g", root.getLeft().getLeft().getRight().getRight().getItem());
+        assertEquals("z", root.getRight().getRight().getItem());
+        assertEquals("w", root.getRight().getLeft().getRight().getLeft().getRight().getRight().getItem());
 
 
 
@@ -130,6 +130,25 @@ public class BSTNodeUtilTest {
         assertTrue(BSTNodeUtil.bstContains(new BTNode<String>("l"), "l"));
         assertFalse(BSTNodeUtil.bstContains(new BTNode<String>("e"), "d"));
         assertFalse(BSTNodeUtil.bstContains(null, "f"));
+    }
+
+
+    @Test
+    public void BSTGetCountTest(){
+        BTNode<String> root = createExampleBstWithAdd();
+        verifyBst(root);
+        
+        BSTNodeUtil.bstAdd(root, "q");
+        BSTNodeUtil.bstAdd(root, "t");
+        BSTNodeUtil.bstAdd(root, "j");
+        BSTNodeUtil.bstAdd(root, "v");
+
+        assertEquals(2, BSTNodeUtil.BSTGetCount(root, "q"));
+        assertEquals(2, BSTNodeUtil.BSTGetCount(root, "t"));
+        assertEquals(2, BSTNodeUtil.BSTGetCount(root, "j"));
+        assertEquals(2, BSTNodeUtil.BSTGetCount(root, "v"));
+
+
     }
 
 }
