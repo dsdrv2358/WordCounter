@@ -20,15 +20,18 @@ public class LyricDatabaseTest {
     @Test
     public void addTest(){
         LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
-        collection.add("test text");
+        collection.add("test");
+        collection.add("text");
         assertTrue(collection.contains("test test"));
     }
 
     @Test
     public void containsTest(){
         LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
-        collection.add("test text");
-        assertTrue(collection.contains("test test"));
+        collection.add("test");
+        collection.add("teXt");
+        assertTrue(collection.contains("test"));
+        assertTrue(collection.contains("teXt"));
     }
 
     @Test
