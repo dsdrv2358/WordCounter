@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import bst.BSTLyricDatabase;
+
 public class PopulateDatabase {
 
     public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class PopulateDatabase {
         String outputFilePath = "lyrics/test.txt";
 
         IntChainedHashSet<String> mySet = new IntChainedHashSet<String>(10000);
+        // BSTLyricDatabase<String> mySet = new BSTLyricDatabase<String>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {

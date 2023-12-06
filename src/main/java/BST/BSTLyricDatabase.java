@@ -16,7 +16,7 @@ public class BSTLyricDatabase<T> implements LyricDatabase <T> {
     /**
      * puts an item into the priorityQueue with the given priority
      */
-    public void add(T item){
+    public void add(String item){
         // if node is empty
         root = BSTNodeUtil.bstAdd(root, item);
     }
@@ -24,14 +24,14 @@ public class BSTLyricDatabase<T> implements LyricDatabase <T> {
     /*
      * returns true or false if item in data structure
      */
-    public boolean contains(T item){
+    public boolean contains(String item){
         return BSTNodeUtil.bstContains(root, item);
     }
 
     /*
      * returns the count of a specific word
      */
-    public int getCount(T item){
+    public int getCount(String item){
         return BSTNodeUtil.BSTGetCount(root, item);
     }
 
