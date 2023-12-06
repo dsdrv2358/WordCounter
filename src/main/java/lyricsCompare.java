@@ -41,15 +41,15 @@ public class lyricsCompare {
                 for (String word : words){
                     if(PopulateDatabase.rockSet.contains(word)){
                         int numItems = PopulateDatabase.rockSet.getCount(word);
-    
                         rock_score+=numItems;
                     }
                     if(PopulateDatabase.rapSet.contains(word)){
                         int numItems = PopulateDatabase.rapSet.getCount(word);
-                        rap_score+=1;
+                        rap_score+=numItems;
                     }
                     if(PopulateDatabase.countrySet.contains(word)){
-                        country_score+=1;
+                        int numItems = PopulateDatabase.countrySet.getCount(word);
+                        country_score+=numItems;
                     }
                 }
             }
