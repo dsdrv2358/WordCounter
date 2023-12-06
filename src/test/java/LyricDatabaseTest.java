@@ -12,6 +12,9 @@ import java.util.PriorityQueue;
 import org.junit.jupiter.api.Test;
 
 import ichs.ICHSLyricDatabase;
+import interfaces.LyricDatabase;
+
+import ichs.ICHSLyricDatabase;
 
 import interfaces.LyricDatabase;
 
