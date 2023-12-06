@@ -8,8 +8,12 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.Scanner;
 
-public class lyricsCompare {
-    public static String getLyrics() {
+import ichs.ICHSLyricDatabase;
+import interfaces.LyricDatabase;
+
+public class LyricsCompare {
+
+    private static String getLyrics() {
         // Create a Scanner object to read input
         Scanner scanner = new Scanner(System.in);
         // Prompt the user for input
@@ -18,19 +22,18 @@ public class lyricsCompare {
         String userInput = scanner.nextLine();
         // Display the user input
         System.out.println("You entered: " + userInput);
-        // Close the scanner to avoid resource leaks
-        scanner.close();      
-        
+        // Do not close the scanner here to avoid closing System.in
         return userInput;
     }
-    private void score(){
+
+    public static void score(LyricDatabase<String> rockSet, LyricDatabase<String> rapSet, LyricDatabase<String> countrySet){
 
         int rock_score = 0;
         int country_score = 0;
         int rap_score = 0;
 
         
-
+        
         String lyrics = getLyrics();
         String line;
 
@@ -40,7 +43,18 @@ public class lyricsCompare {
             while ((line = reader.readLine()) != null){
                 String[] words = line.split("\\s+");
                 for (String word : words){
-                    if(PopulateDatabase.rockSet.contains(word)){
+                    if (word.equals(" ")){
+                        continue;
+                    }
+                    if (word.equals("")){
+                        continue;
+                    }
+                    rock_score = rock_score + rockSet.getCount(word);
+                    System.out.println("banana" + rock_score);
+                    rap_score = rap_score + rapSet.getCount(word);
+                    country_score = country_score + countrySet.getCount(word);
+                    
+                    /*if(PopulateDatabase.rockSet.contains(word)){
                         int numItems = PopulateDatabase.rockSet.getCount(word);
                         rock_score+=numItems;
                     }
@@ -51,10 +65,14 @@ public class lyricsCompare {
                     if(PopulateDatabase.countrySet.contains(word)){
                         int numItems = PopulateDatabase.countrySet.getCount(word);
                         country_score+=numItems;
-                    }
+                    } */
                 }
             }
         }catch (IOException e){}
+
+        System.out.println("rock score: " + rock_score);
+        System.out.println("rap score: " + rap_score);
+        System.out.println("country score: " + country_score);
 
         if (rock_score > rap_score && rock_score > country_score){
             System.out.println("This song is rocky");
@@ -67,4 +85,28 @@ public class lyricsCompare {
             }              
         
     }
+
+
+
+
+    public static void main(String[] args) {
+
+        LyricDatabase<String> rockSet = new ICHSLyricDatabase<String>(10000);
+        rockSet.populateDatabase("lyrics/rock_lyrics.txt");
+
+        //System.out.println(rockSet.getNumItems());
+
+
+        LyricDatabase<String> rapSet = new ICHSLyricDatabase<String>(10000);    
+        rapSet.populateDatabase("lyrics/rap_lyrics.txt");
+
+        //System.out.println(rapSet.getNumItems());
+
+        LyricDatabase<String> countrySet = new ICHSLyricDatabase<String>(10000);
+        countrySet.populateDatabase("lyrics/country_lyrics.txt");
+        //System.out.println(countrySet.getNumItems());
+
+        LyricsCompare.score(rockSet, rapSet, countrySet);
+    }
 }
+

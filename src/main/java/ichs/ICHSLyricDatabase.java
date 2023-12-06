@@ -1,7 +1,13 @@
 package ichs;
-import java.lang.reflect.Array;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 import interfaces.LyricDatabase;
 
@@ -56,6 +62,25 @@ public class ICHSLyricDatabase<T> implements LyricDatabase<T> {
             numItems++;
         }
     }
+
+
+    public void populateDatabase(String filename){
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))){
+            String line;
+            int count = 0;
+            while ((line = reader.readLine()) != null && count < 150000) {
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    count++;
+                    if (word.length() > 3){
+                        this.add(word);
+                    }
+                }
+            }
+        } catch (IOException e) {
+        }
+    }
+
 
     public int getNumItems(){
         return this.numItems;

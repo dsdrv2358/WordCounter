@@ -7,6 +7,13 @@ public interface LyricDatabase<T> {
      */
     void add(String item);
 
+
+    /**
+     * @param filename
+     * @post populates the data structure with the words in the file
+     */
+    void populateDatabase(String filename);
+
     /**
      * @param item
      * @return Boolean depending on if item entered is in data structure

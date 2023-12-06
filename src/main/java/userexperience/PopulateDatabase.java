@@ -10,12 +10,12 @@ import ichs.ICHSLyricDatabase;
 
 public class PopulateDatabase {
 
-    static ICHSLyricDatabase rockSet = makeTheSet("lyrics/rock_lyrics.txt");
-    static ICHSLyricDatabase rapSet = makeTheSet("lyrics/rap_lyrics.txt");
-    static ICHSLyricDatabase countrySet = makeTheSet("lyrics/country_lyrics.txt");
+    static ICHSLyricDatabase<String> rockSet = makeTheSet("lyrics/rock_lyrics.txt");
+    static ICHSLyricDatabase<String> rapSet = makeTheSet("lyrics/rap_lyrics.txt");
+    static ICHSLyricDatabase<String> countrySet = makeTheSet("lyrics/country_lyrics.txt");
 
     public static void main(String[] args) {
-        String inputFilePath = "lyrics/rock_lyrics.txt";
+        String inputFilePath = "lyrics/rap_lyrics.txt";
         String outputFilePath = "lyrics/test.txt";
 
         ICHSLyricDatabase<String> mySet = new ICHSLyricDatabase<String>(10000);
@@ -40,7 +40,7 @@ public class PopulateDatabase {
         } catch (IOException e) {
         }
         System.out.println(mySet.getNumItems());
-        System.out.println(mySet.getCount("hat"));
+        System.out.println(mySet.getCount("frog"));
     }
 
 
