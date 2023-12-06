@@ -40,9 +40,12 @@ public class lyricsCompare {
                 String[] words = line.split("\\s+");
                 for (String word : words){
                     if(PopulateDatabase.rockSet.contains(word)){
-                        rock_score+=1;
+                        int numItems = PopulateDatabase.rockSet.getCount(word);
+    
+                        rock_score+=numItems;
                     }
                     if(PopulateDatabase.rapSet.contains(word)){
+                        int numItems = PopulateDatabase.rapSet.getCount(word);
                         rap_score+=1;
                     }
                     if(PopulateDatabase.countrySet.contains(word)){

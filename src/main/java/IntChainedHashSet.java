@@ -103,11 +103,11 @@ public class IntChainedHashSet<T> implements LyricDatabase<T> {
     }
 
 
-    public int hash(String item) {
+    private int hash(String item) {
         return item.hashCode();
     }
     
-    public int customHash(String item) {
+    private int customHash(String item) {
         int hashValue = hash(item);
         int index = hashValue % this.size;
         return Math.abs(index);
