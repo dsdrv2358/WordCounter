@@ -18,40 +18,37 @@ import interfaces.LyricDatabase;
 public class LyricDatabaseTest {
 
     @Test
-    public void addTest(){
-        LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
-        collection.add("test");
-        collection.add("text");
-        assertTrue(collection.contains("test test"));
-    }
-
-    @Test
-    public void containsTest(){
-        LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
-        collection.add("test");
-        collection.add("teXt");
-        assertTrue(collection.contains("test"));
-        assertTrue(collection.contains("teXt"));
+    public void addContainsTest(){
+        LyricDatabase<String> collection = new ICHSLyricDatabase<String>(1000000000);
+        for (int i = 0; i < 1000000; i++){
+            collection.add("test" + i);
+        }
+        for (int i = 0; i < 1000000; i++){
+            assertTrue(collection.contains("test" + i));
+        }
     }
 
     @Test
     public void getCountTest(){
         LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
-        collection.add("test text");
-        collection.add("test text2");
-        collection.add("test text");
-        assertEquals(2,collection.getCount("test test"));
+        for (int i = 0; i < 100000; i++){
+            for (int j = 0; j < 100; j++){
+                collection.add("test" + i);
+            }
+        }
+        for (int i = 0; i < 100000; i++){
+            assertEquals(100,collection.getCount("test" + i));
+        }
     }
 
     @Test
     public void getNumItemsTest(){
         LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
-        collection.add("test text");
-        collection.add("test text2");
-        collection.add("test text3");
-        collection.add("test text4");
-        collection.add("test text5");
-        collection.add("test text6");
-        assertEquals(6,collection.getCount("test test"));
+        for (int i = 0; i < 100000; i++){
+            for (int j = 0; j < 100; j++){
+                collection.add("test" + i);
+            }
+        }
+        assertEquals(100000,collection.getNumItems());
     }
 }
