@@ -1,8 +1,5 @@
+package userexperience;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Scanner;
@@ -22,8 +19,8 @@ public class lyricsCompare {
         
         return userInput;
     }
-    private void score(){
 
+    private void score(){
         int rock_score = 0;
         int country_score = 0;
         int rap_score = 0;

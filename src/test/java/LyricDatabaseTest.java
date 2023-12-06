@@ -11,27 +11,30 @@ import java.util.PriorityQueue;
 
 import org.junit.jupiter.api.Test;
 
+import ichs.ICHSLyricDatabase;
+import interfaces.LyricDatabase;
+
 
 
 public class LyricDatabaseTest {
 
     @Test
     public void addTest(){
-        LyricDatabase<String> collection = new IntChainedHashSet<String>();
+        LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
         collection.add("test text");
         assertTrue(collection.contains("test test"));
     }
 
     @Test
     public void containsTest(){
-        LyricDatabase<String> collection = new IntChainedHashSet<String>();
+        LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
         collection.add("test text");
         assertTrue(collection.contains("test test"));
     }
 
     @Test
     public void getCountTest(){
-        LyricDatabase<String> collection = new IntChainedHashSet<String>();
+        LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
         collection.add("test text");
         collection.add("test text2");
         collection.add("test text");
@@ -40,7 +43,7 @@ public class LyricDatabaseTest {
 
     @Test
     public void getNumItemsTest(){
-        LyricDatabase<String> collection = new IntChainedHashSet<String>();
+        LyricDatabase<String> collection = new ICHSLyricDatabase<String>();
         collection.add("test text");
         collection.add("test text2");
         collection.add("test text3");

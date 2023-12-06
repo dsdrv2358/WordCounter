@@ -1,22 +1,23 @@
+package userexperience;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import bst.BSTLyricDatabase;
+import ichs.ICHSLyricDatabase;
 
 public class PopulateDatabase {
 
-    static IntChainedHashSet rockSet = makeTheSet("lyrics/rock_lyrics.txt");
-    static IntChainedHashSet rapSet = makeTheSet("lyrics/rap_lyrics.txt");
-    static IntChainedHashSet countrySet = makeTheSet("lyrics/country_lyrics.txt");
+    static ICHSLyricDatabase<String> rockSet = makeTheSet("lyrics/rock_lyrics.txt");
+    static ICHSLyricDatabase<String> rapSet = makeTheSet("lyrics/rap_lyrics.txt");
+    static ICHSLyricDatabase<String> countrySet = makeTheSet("lyrics/country_lyrics.txt");
 
     public static void main(String[] args) {
         String inputFilePath = "lyrics/rock_lyrics.txt";
         String outputFilePath = "lyrics/test.txt";
 
-        IntChainedHashSet<String> mySet = new IntChainedHashSet<String>(10000);
+        ICHSLyricDatabase<String> mySet = new ICHSLyricDatabase<String>(10000);
 // BSTLyricDatabase<String> mySet = new BSTLyricDatabase<String>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
@@ -42,10 +43,10 @@ public class PopulateDatabase {
     }
 
 
-    public static IntChainedHashSet<String> makeTheSet(String inputFilePath){
+    public static ICHSLyricDatabase<String> makeTheSet(String inputFilePath){
         String outputFilePath = "lyrics/test.txt";
 
-        IntChainedHashSet<String> mySet = new IntChainedHashSet<String>(10000);
+        ICHSLyricDatabase<String> mySet = new ICHSLyricDatabase<String>(10000);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {

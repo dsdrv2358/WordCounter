@@ -1,6 +1,6 @@
 package bst;
 
-import interface;
+import interfaces.LyricDatabase;
 
 import java.util.NoSuchElementException;
 

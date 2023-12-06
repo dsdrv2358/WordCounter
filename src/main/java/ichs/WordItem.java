@@ -1,3 +1,4 @@
+package ichs;
 import java.util.ArrayList;
 
 public class WordItem{

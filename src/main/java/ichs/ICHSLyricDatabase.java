@@ -1,8 +1,11 @@
+package ichs;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntChainedHashSet<T> implements LyricDatabase<T> {
+import interfaces.LyricDatabase;
+
+public class ICHSLyricDatabase<T> implements LyricDatabase<T> {
 
     private WordItem[] myArray;
     private int size = 0;
@@ -11,9 +14,14 @@ public class IntChainedHashSet<T> implements LyricDatabase<T> {
     /**
      * creates a new IntHashSet with the specified size for the underlying array
      */
-    public IntChainedHashSet(int size){
+    public ICHSLyricDatabase(int size){
         this.myArray = new WordItem[size];
         this.size = size;
+    } 
+
+    public ICHSLyricDatabase(){
+        this.myArray = new WordItem[1000];
+        this.size = 1000;
     } 
 
 
