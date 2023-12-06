@@ -50,7 +50,6 @@ public class LyricsCompare {
                         continue;
                     }
                     rock_score = rock_score + rockSet.getCount(word);
-                    System.out.println("banana" + rock_score);
                     rap_score = rap_score + rapSet.getCount(word);
                     country_score = country_score + countrySet.getCount(word);
                     
