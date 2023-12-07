@@ -41,4 +41,11 @@ public class BSTLyricDatabase<T> implements LyricDatabase <T> {
     public int getNumItems(){
         return BTNodeUtil.nodeCount(root);
     }
+
+
+    @Override
+    public void populateDatabase(String filename) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'populateDatabase'");
+    }
 }
