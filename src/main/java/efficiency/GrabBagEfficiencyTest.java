@@ -2,6 +2,11 @@ package efficiency;
 
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import bst.BSTLyricDatabase;
@@ -52,6 +57,36 @@ public class GrabBagEfficiencyTest {
         for (int i=0; i<putCount; i++){
             mySet.add("an example string" + Integer.toString(i));
             //This extra integer converted makes sure the hash doesn't put everything in the same bucket
+        }
+    }
+
+        /* Calculates the average time to add one item for every one thousand items added */
+    public static void timePopulateMicro(LyricDatabase<String> mySet, String datasetType, String filename, DefaultCategoryDataset dataset){
+        ArrayList<Long> runTimes = new ArrayList<Long>();
+        long totalRunTime = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))){
+            String line;
+            int count = 0;
+            while ((line = reader.readLine()) != null && count < 150000) {
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    count++;
+                    if (word.length() > 3){ 
+                        long start = System.nanoTime();
+                        mySet.add(word);
+                        long end = System.nanoTime();
+                        long runTime = (end - start);
+                        totalRunTime += runTime;
+                    }
+                    if (count % 1000 == 0){
+                        totalRunTime = totalRunTime/1000;
+                        runTimes.add(totalRunTime);
+                        dataset.addValue( totalRunTime, datasetType, String.valueOf(count) );
+                        totalRunTime = 0;
+                    }
+                }
+            }
+        } catch (IOException e) {
         }
     }
 
@@ -119,6 +154,20 @@ public class GrabBagEfficiencyTest {
         // new EfficiencyChart(dataset12);
 
         //Transparency
+
+
+
+        LyricDatabase<String> rapSet = new ICHSLyricDatabase<String>(10000);
+        LyricDatabase<String> rapTree = new BSTLyricDatabase<String>();
+
+
+        DefaultCategoryDataset datasetICHS1 = new DefaultCategoryDataset();
+        DefaultCategoryDataset datasetBST1 = new DefaultCategoryDataset();
+        timePopulateMicro(rapSet, "ICHSLyricDatabase", "lyrics/rap_lyrics.txt", datasetICHS1);
+        timePopulateMicro(rapTree, "BSTLyricDatabase", "lyrics/rap_lyrics.txt", datasetBST1);
+        new EfficiencyChart(datasetICHS1);
+        new EfficiencyChart(datasetBST1);
+
     }
     }
     
