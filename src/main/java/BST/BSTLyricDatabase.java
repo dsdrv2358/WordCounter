@@ -1,10 +1,10 @@
 package bst;
 
-import interface;
+import interface2.LyricDatabase;
 
 import java.util.NoSuchElementException;
 
-public class BSTLyricDatabase<T> implements LyricDatabase <T> {
+public class BSTLyricDatabase<T> implements LyricDatabase <String> {
 
     private BTNode<String> root;
 
