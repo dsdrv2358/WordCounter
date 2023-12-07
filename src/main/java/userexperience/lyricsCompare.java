@@ -5,6 +5,7 @@ import java.io.StringReader;
 import java.util.Scanner;
 
 import ichs.ICHSLyricDatabase;
+import bst.BSTLyricDatabase;
 import interfaces.LyricDatabase;
 
 public class LyricsCompare {
@@ -86,18 +87,18 @@ public class LyricsCompare {
 
     public static void main(String[] args) {
 
-        LyricDatabase<String> rockSet = new ICHSLyricDatabase<String>(10000);
+        LyricDatabase<String> rockSet = new BSTLyricDatabase<String>();
         rockSet.populateDatabase("lyrics/rock_lyrics.txt");
 
         //System.out.println(rockSet.getNumItems());
 
 
-        LyricDatabase<String> rapSet = new ICHSLyricDatabase<String>(10000);    
+        LyricDatabase<String> rapSet = new BSTLyricDatabase<String>();    
         rapSet.populateDatabase("lyrics/rap_lyrics.txt");
 
         //System.out.println(rapSet.getNumItems());
 
-        LyricDatabase<String> countrySet = new ICHSLyricDatabase<String>(10000);
+        LyricDatabase<String> countrySet = new BSTLyricDatabase<String>();
         countrySet.populateDatabase("lyrics/country_lyrics.txt");
         //System.out.println(countrySet.getNumItems());
 
