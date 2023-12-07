@@ -123,7 +123,7 @@ public class BSTNodeUtil {
      */
     public static <T extends Comparable<T>> int BSTGetCount(BTNode<T> root, String item){
         if (root == null) {
-            throw new IllegalArgumentException("BST does not contain item");
+            return 0;
         }
         int num = item.compareTo(root.getItem());
         if (num == 0){

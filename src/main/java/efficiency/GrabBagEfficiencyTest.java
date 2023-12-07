@@ -208,8 +208,8 @@ public class GrabBagEfficiencyTest {
         DefaultCategoryDataset datasetBST1 = new DefaultCategoryDataset();
         timePopulateMicro(rapSet, "ICHSLyricDatabase", "lyrics/rap_lyrics.txt", datasetICHS1);
         timePopulateMicro(rapTree, "BSTLyricDatabase", "lyrics/rap_lyrics.txt", datasetBST1);
-        new EfficiencyChart(datasetICHS1);
-        new EfficiencyChart(datasetBST1);
+        // new EfficiencyChart(datasetICHS1);
+        // new EfficiencyChart(datasetBST1);
 
 
 
