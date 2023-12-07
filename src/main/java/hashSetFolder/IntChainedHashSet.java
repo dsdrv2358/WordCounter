@@ -1,8 +1,12 @@
+package hashSetFolder;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntChainedHashSet<T> implements LyricDatabase<T> {
+import interface2.LyricDatabase;
+import wordFolder.WordItem;
+
+public class IntChainedHashSet<String> implements LyricDatabase<String> {
 
     private WordItem[] myArray;
     private int size = 0;
@@ -17,30 +21,35 @@ public class IntChainedHashSet<T> implements LyricDatabase<T> {
     } 
 
 
+    public IntChainedHashSet() {
+    }
+
+
     /**
      * @post adds an item to the set
      */
-    public void add(String item){
-        WordItem newWord = new WordItem(item);
-        int hashIndex = customHash(item);
+
+    public void add(String string){
+        WordItem newWord = new WordItem();
+        int hashIndex = customHash(string);
         if (myArray[hashIndex] == null){
             myArray[hashIndex] = newWord;
             numItems++;
         }
-        else if (myArray[hashIndex].getItem().equals(item)){
+        else if (myArray[hashIndex].getItem().equals(string)){
             myArray[hashIndex].increaseCount();
             return;
         }
         else { 
             WordItem current = myArray[hashIndex];
             while (current.getNext() != null){
-                if (current.getItem().equals(item)){
+                if (current.getItem().equals(string)){
                     current.increaseCount();
                     return;
                 }
                 current = current.getNext();
             }
-            if (current.getItem().equals(item)){
+            if (current.getItem().equals(string)){
                 current.increaseCount();
                 return;
             }
@@ -122,7 +131,7 @@ public class IntChainedHashSet<T> implements LyricDatabase<T> {
         WordItem[] oldArray = this.myArray;
         this.myArray = new WordItem[newSize];
         this.size = newSize;
-        ArrayList<String> wordList;
+        ArrayList<java.lang.String> wordList;
 
         for (int i = 0; i < oldArray.length ; i++){
             if (oldArray[i] != null){

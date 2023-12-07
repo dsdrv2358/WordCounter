@@ -1,3 +1,4 @@
+package wordFolder;
 import java.util.ArrayList;
 
 public class WordItem{

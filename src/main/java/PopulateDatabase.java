@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import bst.BSTLyricDatabase;
+import hashSetFolder.IntChainedHashSet;
 
 public class PopulateDatabase {
 

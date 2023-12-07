@@ -11,6 +11,10 @@ import java.util.PriorityQueue;
 
 import org.junit.jupiter.api.Test;
 
+import hashSetFolder.IntChainedHashSet;
+
+import interface2.LyricDatabase;
+
 
 
 public class LyricDatabaseTest {

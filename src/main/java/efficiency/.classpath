@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="lib" path="lib/jfreechart-1.5.2.jar"/>
+    <classpathentry kind="lib" path="lib/jcommon-1.5.2.jar"/>
+    <!-- Add other classpath entries if needed -->
+    <classpathentry kind="output" path="bin"/>
+</classpath>

@@ -8,7 +8,7 @@ import java.io.StringReader;
 import java.util.Scanner;
 
 public class lyricsCompare {
-    public static String getLyrics() {
+    public String getLyrics() {
         // Create a Scanner object to read input
         Scanner scanner = new Scanner(System.in);
         // Prompt the user for input
@@ -22,7 +22,7 @@ public class lyricsCompare {
         
         return userInput;
     }
-    private void score(){
+    public void main(String []args){
 
         int rock_score = 0;
         int country_score = 0;
